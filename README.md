@@ -35,8 +35,9 @@
 
 ## TODO:
 
-- [ ] Pesquisar como comecou o node.
-- [ ] Pesquisar por que surgiu ? 
+- [X] Pesquisar como comecou o node.
+
+- [X] Pesquisar por que surgiu ? 
 
 - [ ] Criar arquivos de web simples.
 
