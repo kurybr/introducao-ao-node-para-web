@@ -39,7 +39,7 @@
 
 - [X] Pesquisar por que surgiu ? 
 
-- [ ] Criar arquivos de web simples.
+- [x] Criar arquivos de web simples.
 
 - [ ] Organizar o code de forma que fique só as funcões, relacionadas ao login para serem feitas,
 elas serão desenvolvidas junto com os alunos no curso.

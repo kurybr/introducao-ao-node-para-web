@@ -1,11 +1,17 @@
 (() => {
 
+	'use strict';
+
+	/** Comente aqui .. */
 	const http = require('http');
 
+	/** Comente aqui .. */
 	const routes = require('./routes');
+
+	/** Comente aqui .. */
 	const log = require('./log');
 
-
+	/** Comente aqui .. */
 	const server = http.createServer((request, response) => {
 
 		/** Comente aqui .. */
@@ -62,7 +68,7 @@
 	})
 
 
-
+	/** Comente aqui .. */
 	module.exports = server;
 
 })();
