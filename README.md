@@ -16,32 +16,24 @@
 
 
 
+## Estrutura do Projeto
 ```
 .
-├── bin
-│   ├── cache
-│   └── resources
-│       ├── database
-│       ├── docs
-│       └── log
-├── modules
-│   ├── App
-│   │   ├── Controllers
-│   │   │   └── Version
-│   │   │       └── Midleware
-│   │   └── Repositories
-│   │       └── Version
-│   │           └── Entities
-│   └── Resources
-├── tests
-└── web
-    ├── assets
-    ├── uploads
-    └── views
+├── Backend
+│   ├── Database
+│   │   └── db.js
+│   └── Modules
+│       ├── mod1
+│       └── mod2
+│           ├── Controller.js
+│           ├── Model.js
+│           └── Route.js
+├── package.json
+└── Server.js
 ```
 
 
-# TODO:
+## TODO:
 
 - [ ] Pesquisar como comecou o node.
 - [ ] Pesquisar por que surgiu ? 
