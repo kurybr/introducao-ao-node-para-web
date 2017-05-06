@@ -18,13 +18,13 @@
 
 ```
 .
-├── app
+├── bin
 │   ├── cache
 │   └── resources
 │       ├── database
 │       ├── docs
 │       └── log
-├── src
+├── modules
 │   ├── App
 │   │   ├── Controllers
 │   │   │   └── Version
