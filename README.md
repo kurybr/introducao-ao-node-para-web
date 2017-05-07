@@ -22,7 +22,6 @@
 .
 ├── Backend
 │   ├── Database
-│   │   └── db.js
 │   └── Modules
 │       ├── mod1
 │       └── mod2
@@ -30,7 +29,6 @@
 │           ├── Model.js
 │           └── Route.js
 ├── Frontend
-│   └── views
 └── bin
 ```
 
