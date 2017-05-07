@@ -17,6 +17,7 @@
 
 
 ## Estrutura do Projeto
+
 ```
 .
 ├── Backend
@@ -28,8 +29,9 @@
 │           ├── Controller.js
 │           ├── Model.js
 │           └── Route.js
-├── package.json
-└── Server.js
+├── Frontend
+│   └── views
+└── bin
 ```
 
 
