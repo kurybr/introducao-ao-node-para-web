@@ -2,7 +2,7 @@
 
 #### Links de Apoio.
 
-- [Link para o Slide](http://#)
+- [Link para o Slide](https://docs.google.com/presentation/d/19SlmPJ3aUo5OQ1FO6aJKuEpbSJgB5KS5JUGDXhBH6sk/edit?usp=sharing)
 
 - [https://github.com/felixge/node-mysql](https://github.com/felixge/node-mysql)
 - [https://nodejs.org/api/](https://nodejs.org/api/)
