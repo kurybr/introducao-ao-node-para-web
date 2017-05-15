@@ -23,11 +23,13 @@
 
 		/** Comente aqui */
 		let api = {
-			user: require('./modules/user/user.routes')
+			user: require('./modules/user/user.routes'),
+			post: require('./modules/post/post.routes')
 		};
 
 		/** Comente aqui */
 		app.use('/api/user', api.user);
+		app.use('/api/post', api.post);
 
 	};
 

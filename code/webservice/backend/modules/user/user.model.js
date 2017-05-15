@@ -13,7 +13,7 @@
 			let query = { email: email };
 
 			if (user) {
-				sql += ' and code_user != ' + db.escape(user);
+				sql += ' and code != ' + db.escape(user);
 			}
 
 			db.query(sql, query, (err, result) => {
