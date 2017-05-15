@@ -4,7 +4,7 @@
 
 	const express = require('express');
 
-
+	/** Commente aqui !  */
 	const Utils = require('../utils/utils.hash');
 	const Log = require('../utils/utils.log');
 	const model = require('./post.model');
@@ -13,19 +13,12 @@
 
 
 
-    /*
-    Criar - Criar Postagem
-    - Função responsável por cadastrar novas postagens.
-    @params - dados.texto - String
-    @params - Token - String
-    return - Id da postagem !
-    */
-
+	/** Commente aqui !  */
 	const onPublish = (token, data, callback) => {
 
 		const onValid = (user) => {
 
-
+			/** Commente aqui !  */
 			if (!data) {
 
 				return callback({
@@ -34,14 +27,17 @@
 					, data: null
 				}, null)
 
-			} // Não houve parametros.
+			}
 
+			/** Commente aqui !  */
 			if (!data.text) {
 				return callback({ status: 400, msg: 'A Postagem não pode ser vázia' });
 			}
 
+			/** Commente aqui !  */
 			let keys = ['text'];
 
+			/** Commente aqui !  */
 			for (let key in data) {
 				if (data.hasOwnProperty(key)) {
 					if (keys.indexOf(key) < 0) {
@@ -50,10 +46,11 @@
 				}
 			}
 
+			/** Commente aqui !  */
 			data.createdAt = new Date();
 			data.user_code = user.code;
 
-
+			/** Commente aqui !  */
 			model.Publish(data, (err, result) => {
 
 				if (err) {
@@ -69,9 +66,11 @@
 
 		}
 
-
+		/** Commente aqui !  */
 		Utils.ValidToken(token)
 			.then(onValid, (err) => {
+
+				/** Commente aqui !  */
 				return callback({
 					status: 401
 					, msg: "Token de segurança invalido, faça login novamente para regularizar."
@@ -84,32 +83,29 @@
 
 
 
-    /*
-        Listar - Listagem de Postagens
-        - Função responsável por listar as postagens do usuário
-        @params - post.cod - Int (opcional)
-        @params - Token - String
-        return - Lista de postagens do usuário ( caso tenha passado o ID retorna apenas uma postagem.)
-     */
+	/** Commente aqui !  */
 	const onList = (token, post, cb) => {
 
 
-
+		/** Commente aqui !  */
 		const onValid = (user) => {
 
-
+			/** Commente aqui !  */
 			if (post.code) {
 
 				post.code = Number(post.code);
 
 			} else {
 
+				/** Commente aqui !  */
 				post = {};
 
 			}
 
+			/** Commente aqui !  */
 			post.user_code = user.code;
 
+			/** Commente aqui !  */
 			model.List(post, (err, result) => {
 
 				if (err) {
@@ -125,7 +121,7 @@
 
 		}
 
-
+		/** Commente aqui !  */
 		Utils.ValidToken(token)
 			.then(onValid, (err) => {
 				return cb({
@@ -140,12 +136,13 @@
 
 
 
-
+	/** Commente aqui !  */
 	const onRemove = (token, data, callback) => {
 
+		/** Commente aqui !  */
 		const onValid = (user) => {
 
-
+			/** Commente aqui !  */
 			if (!data.code) {
 				return callback({
 					status: 400
@@ -154,14 +151,18 @@
 				});
 			}
 
+			/** Commente aqui !  */
 			data.code = Number(data.code);
 
+			/** Commente aqui !  */
 			model.Remove(user.code, data, (err, result) => {
 
+				/** Commente aqui !  */
 				if (err) {
 					return callback(err);
 				}
 
+				/** Commente aqui !  */
 				return callback(null, {
 					msg: result.msg
 					, data: result.data
@@ -171,6 +172,7 @@
 
 		}
 
+		/** Commente aqui !  */
 		Utils.ValidToken(token)
 			.then(onValid, (err) => {
 				return callback({
@@ -183,7 +185,7 @@
 			})
 	}
 
-
+	/** Commente aqui !  */
 	module.exports = {
 		Remove: onRemove,
 		Publish: onPublish,

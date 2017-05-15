@@ -17,6 +17,7 @@
 	/** Comente aqui */
 	const onRegister = (data, callback) => {
 
+		/** Commente aqui !  */
 		if (!data) {
 			return callback({
 				status: 400,
@@ -25,18 +26,26 @@
 			});
 		}
 
+		/** Commente aqui !  */
 		if (!data.name) {
 			return callback({ status: 400, msg: 'É Obrigatório informar o e-mail' });
 		}
+
+		/** Commente aqui !  */
 		if (!data.password) {
 			return callback({ status: 400, msg: 'É Obrigatório informar uma password' });
 		}
+
+		/** Commente aqui !  */
 		if (data.password.length < 5 && data.password.length > 80) {
 			return callback({ status: 400, msg: 'A password deve conter entre 5 e 80 caracteres' });
 		}
 
+		/** Commente aqui !  */
 		let keys = ['name', 'password', 'email'];
 
+
+		/** Commente aqui !  */
 		for (let key in data) {
 			if (data.hasOwnProperty(key)) {
 				if (keys.indexOf(key) < 0) {
@@ -45,8 +54,10 @@
 			}
 		}
 
+		/** Commente aqui !  */
 		data.createdAt = new Date();
 
+		/** Commente aqui !  */
 		let GenerateTokenRecovery = (token) => {
 
 			data.token_recovery = token;
@@ -67,11 +78,15 @@
 
 		}
 
+		/** Commente aqui !  */
 		let GeneratePassword = (hash) => {
 
 			data.password = hash;
 
+			/** Commente aqui !  */
 			let token = data.email + Date.now();
+
+			/** Commente aqui !  */
 			Utils.GenerateHash(token)
 				.then(GenerateTokenRecovery, (err) => {
 					Log.error(err);
@@ -80,10 +95,11 @@
 
 		}
 
+		/** Commente aqui !  */
 		model.VerifyEmail(data.email).then((exist) => {
 
-			console.log(exist);
 
+			/** Commente aqui !  */
 			if (exist) {
 				return callback({
 					status: 401,
@@ -92,6 +108,7 @@
 				})
 			}
 
+			/** Commente aqui !  */
 			Utils.GenerateHash(data.password)
 				.then(GeneratePassword, (err) => {
 					Log.error(err);
@@ -107,21 +124,22 @@
 
 	};
 
+	/** Commente aqui !  */
 	const onEdit = (token, data, callback) => {
 
-
+		/** Commente aqui !  */
 		const onValid = (user) => {
 
-
+			/** Commente aqui !  */
 			if (!data) {
 				return callback({
 					status: 400
 					, msg: 'Informe os parametros necessários, para atualizar o usuário.'
 					, data: null
 				}, null)
-			} // Não houve parametros.
+			}
 
-
+			/** Commente aqui !  */
 			if (data.password) {
 
 				if (data.password.length < 5 && data.password.length > 80) {
@@ -130,8 +148,10 @@
 
 			}
 
+			/** Commente aqui !  */
 			let keys = ['name', 'password', 'email', 'code'];
 
+			/** Commente aqui !  */
 			for (let key in data) {
 				if (data.hasOwnProperty(key)) {
 					if (keys.indexOf(key) < 0) {
@@ -140,6 +160,7 @@
 				}
 			}
 
+			/** Commente aqui !  */
 			for (let key in user) {
 				if (user.hasOwnProperty(key)) {
 					if (keys.indexOf(key) < 0) {
@@ -148,10 +169,10 @@
 				}
 			}
 
+			/** Commente aqui !  */
 			data.code = user.code;
 
-
-
+			/** Commente aqui !  */
 			let onEditSuccess = (err, result) => {
 
 				if (err) {
@@ -165,6 +186,7 @@
 
 			}
 
+			/** Commente aqui !  */
 			let GeneratePassword = (hash) => {
 
 				data.password = hash;
@@ -172,7 +194,7 @@
 
 			}
 
-
+			/** Commente aqui !  */
 			if (data.password) {
 
 				Utils.GenerateHash(data.password) // Criptografa a password.
@@ -182,7 +204,7 @@
 					});
 
 			} else {
-
+				/** Commente aqui !  */
 				model.Edit(data, onEditSuccess);
 
 			}
@@ -193,9 +215,11 @@
 
 		}
 
-
+		/** Commente aqui !  */
 		Utils.ValidToken(token)
 			.then(onValid, (err) => {
+
+				/** Commente aqui !  */
 				callback({
 					status: 401
 					, msg: "Token de segurança invalido, faça login novamente para regularizar."
@@ -203,29 +227,37 @@
 						expirado_em: err.expiredAt
 					}
 				})
+
 			})
 	};
 
+	/** Commente aqui !  */
 	const onLogin = (data, callback) => {
 
 		if (!data) {
+
+			/** Commente aqui !  */
 			return callback({
-				status: 400 /// códigos que informam ao cliente, qual foi o resultado da operação realizada.
+				status: 400
 				, msg: 'Informe os parametros necessários, para fazer o login.'
 				, data: null
 			}, null)
-		} // Não houve parametros.
+		}
 
+		/** Commente aqui !  */
 		if (!data.email) {
 			return callback({ status: 400, msg: 'É Obrigatório informar o e-mail' });
 		}
 
+		/** Commente aqui !  */
 		if (!data.password) {
 			return callback({ status: 400, msg: 'É Obrigatório informar uma senha' });
 		}
 
+		/** Commente aqui !  */
 		let keys = ['password', 'email'];
 
+		/** Commente aqui !  */
 		for (let key in data) {
 			if (data.hasOwnProperty(key)) {
 				if (keys.indexOf(key) < 0) {
@@ -234,14 +266,15 @@
 			}
 		}
 
-
+		/** Commente aqui !  */
 		let GenerateToken = (err, result) => {
 
 			if (err) {
 				return callback(err);
 			}
 
-			function onSuccessGenerate(token) {
+			/** Commente aqui !  */
+			const onSuccessGenerate = (token) => {
 
 				result.data.token = token;
 
@@ -252,6 +285,7 @@
 
 			}
 
+			/** Commente aqui !  */
 			Utils.GenerateToken(result.data)
 				.then(onSuccessGenerate, (err) => {
 					console.warn(err);
@@ -260,6 +294,7 @@
 
 		}
 
+		/** Commente aqui !  */
 		let GeneratePassword = (hash) => {
 
 			data.password = hash;
@@ -268,7 +303,7 @@
 		}
 
 
-
+		/** Commente aqui !  */
 		Utils.GenerateHash(data.password) // Criptografa a senha.
 			.then(GeneratePassword, (err) => {
 				console.warn(err);
@@ -280,12 +315,13 @@
 
 	};
 
+	/** Commente aqui !  */
 	const onFindById = (code, callback) => {
 
 		model.FindById(code, callback);
 	};
 
-
+	/** Commente aqui !  */
 	module.exports = {
 		Register: onRegister,
 		Edit: onEdit,

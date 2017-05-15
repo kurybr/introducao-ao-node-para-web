@@ -12,6 +12,7 @@
 		console.warn(data);
 	}
 
+	/** Commente aqui !  */
 	const onLogSuccess = (data) => {
 		console.info(data);
 	}

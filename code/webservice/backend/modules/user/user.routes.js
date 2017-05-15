@@ -81,17 +81,20 @@
 
 	};
 
-
+	/** Commente aqui !  */
 	const onLogin = (request, response) => {
 
 		let data = request.body;
 
+		/** Commente aqui !  */
 		controller.Login(data, (err, result) => {
 
 			if (err) {
 
+				/** Commente aqui !  */
 				response.status = err.status;
 
+				/** Commente aqui !  */
 				return response.json({
 					error: true
 					, msg: err.msg
@@ -100,6 +103,7 @@
 
 			}
 
+			/** Commente aqui !  */
 			return response.json({
 				error: false
 				, msg: result.msg
@@ -110,14 +114,19 @@
 
 	};
 
+	/** Commente aqui !  */
 	const onFindById = (request, response) => {
 
+		/** Commente aqui !  */
 		let data = request.params.id;
 
+		/** Commente aqui !  */
 		controller.FindById(data, (err, result) => {
+
 
 			if (err) {
 
+				/** Commente aqui !  */
 				response.status = err.status;
 
 				return response.json({
@@ -128,6 +137,7 @@
 
 			}
 
+			/** Commente aqui !  */
 			return response.json({
 				error: false
 				, msg: result.msg
@@ -139,6 +149,7 @@
 	};
 
 
+	/** Commente aqui !  */
 	routes.post('/login', onLogin);
 	routes.post('/register', onRegister);
 	routes.put('/edit', onEdit);

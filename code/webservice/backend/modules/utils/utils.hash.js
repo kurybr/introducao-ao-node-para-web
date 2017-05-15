@@ -10,6 +10,7 @@
 	/** Comente aqui */
 	const onGenerateHash = (data) => {
 
+		/** Commente aqui !  */
 		return new Promise((resolve, reject) => {
 
 			/** Comente aqui */
