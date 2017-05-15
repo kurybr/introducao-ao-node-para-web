@@ -10,7 +10,7 @@
 
 
 	const since = new Date();
-	let log = require('../code/modules/utils/utils.log');
+	let log = require('../backend/modules/utils/utils.log');
 
 	try {
 

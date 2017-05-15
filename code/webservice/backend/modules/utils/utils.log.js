@@ -8,121 +8,19 @@
 	const jwt = require('jsonwebtoken');
 
 	/** Comente aqui */
-	const onGenerateHash = (data) => {
+	const onLogError = (data) => {
+		console.warn(data);
+	}
 
-		return new Promise((resolve, reject) => {
-
-			/** Comente aqui */
-			if (!data) {
-
-				/** Comente aqui */
-				const err = new Error('Envie algum valor como parametro.');
-
-				/** Comente aqui */
-				return reject(err);
-			}
-
-			try {
-
-				/** Comente aqui */
-				let encrypt = crypto.createHash('MD5');
-
-				/** Comente aqui */
-				encrypt.update(data);
-
-				/** Comente aqui */
-				encrypt.digest('base64');
-
-				/** Comente aqui */
-				resolve(encrypt);
-
-				/** Comente aqui */
-			} catch (err) {
-
-				/** Comente aqui */
-				return reject(err);
-			}
-
-		})
-
-	};
-
-	/** Comente aqui */
-	const onGenerateToken = (data) => {
-
-		return new Promise((resolve, reject) => {
-
-			/** Comente aqui */
-			if (!data) {
-				const err = new Error('Envie algum valor como parametro.');
-				return reject(err);
-			}
-
-			/** Comente aqui */
-			try {
-
-				/** Comente aqui */
-				const secret = "one-secret";
-
-				/** Comente aqui */
-				const option = { expireIn: (1440 * 60) }
-
-				/** Comente aqui */
-				const token = jwt.sing(data, secret, option);
-
-				/** Comente aqui */
-				resolve(token);
-
-			} catch (err) {
-
-				/** Comente aqui */
-				reject(err);
-			}
-
-
-		})
-
-	};
-	const onValidToken = (data) => {
-
-		/** Comente aqui */
-		if (!data) {
-			const err = new Error('É obrigatório enviar um Token.');
-			return reject(err);
-		}
-
-		try {
-
-			/** Comente aqui */
-			const secret = "one-secret";
-
-			/** Comente aqui */
-			jwt.verify(data, secret, (err, decode) => {
-
-				/** Comente aqui */
-				if (err) {
-					return reject(err);
-				}
-
-				/** Comente aqui */
-				resolve(decode);
-
-			})
-
-		} catch (err) {
-
-			return reject(err);
-
-		}
-
-	};
+	const onLogSuccess = (data) => {
+		console.info(data);
+	}
 
 
 	/** Comente aqui */
 	module.exports = {
-		GenerateHash: onGenerateHash,
-		GenerateToken: onGenerateToken,
-		ValidToken: onValidToken
+		error: onLogError,
+		action: onLogSuccess
 	};
 
 

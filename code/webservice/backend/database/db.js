@@ -11,7 +11,7 @@
 	config = {
 		host: 'localhost' // Host do Mysql
 		, user: 'root'  // Usuário do banco
-		, password: ''  // Senha do banco
+		, password: 'root'  // Senha do banco
 		, database: 'courses_infoeste_2017' // Banco de dados
 	};
 
