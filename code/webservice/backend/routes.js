@@ -41,6 +41,8 @@
 		app.use('/pages/:module/:action', function (req, resp) {
 			let fold = req.params.module;
 			let page = req.params.action;
+			// localhost/pages/usuarios/login
+			// pages/usuarios/login.html
 			return resp.render('pages/' + fold + '/' + page);
 		});
 

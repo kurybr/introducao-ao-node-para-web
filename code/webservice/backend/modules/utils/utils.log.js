@@ -1,11 +1,6 @@
 ; (() => {
 	'use strict';
 
-	/** Comente aqui */
-	const crypto = require('crypto');
-
-	/** Comente aqui */
-	const jwt = require('jsonwebtoken');
 
 	/** Comente aqui */
 	const onLogError = (data) => {

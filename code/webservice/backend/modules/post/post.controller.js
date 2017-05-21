@@ -185,11 +185,29 @@
 			})
 	}
 
+
+	const onEdit = (token, post_code, data, callback) => {
+
+
+		const onValid = (user) => {
+
+			data.user_code = user.code;
+
+		}
+
+
+		Utils.ValidToken(token).then(onValid).catch((err) => {
+			callback(err);
+		})
+
+	}
+
 	/** Commente aqui !  */
 	module.exports = {
 		Remove: onRemove,
 		Publish: onPublish,
-		List: onList
+		List: onList,
+		Edit: onEdit
 	};
 
 })();

@@ -1,7 +1,7 @@
 (() => {
 
 	/** Comente aqui */
-	const http = require('http'); // Modulo de HTTP do Node.js.
+	const http = require('http');
 
 
 	/** Comente aqui */

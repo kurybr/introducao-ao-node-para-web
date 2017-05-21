@@ -17,6 +17,9 @@
 		/** Comente aqui */
 		let data = request.body;
 
+		console.log(data);
+
+
 		/** Comente aqui */
 		controller.Register(data, (err, result) => {
 

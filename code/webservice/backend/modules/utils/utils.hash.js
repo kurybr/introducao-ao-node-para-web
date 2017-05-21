@@ -78,6 +78,7 @@
 		})
 
 	};
+
 	const onValidToken = (data) => {
 
 		return new Promise((resolve, reject) => {

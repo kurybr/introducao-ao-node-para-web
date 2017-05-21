@@ -23,6 +23,8 @@
 		/** Comente aqui */
 		let page = request.url;
 
+		console.log(request);
+
 		/** Comente aqui */
 		// __dirname é o caminho fisico da aplicação !! 
 		let file = path.join(__dirname, '../../../files/htmls' + page);

@@ -22,8 +22,7 @@
 
 		/** Comente aqui */
 		// __dirname é o caminho fisico da aplicação !! 
-		let file = path.join(__dirname, '../../files/htmls/hello-world.html');
-
+		let file = path.join(__dirname, '../../../files/htmls/hello-world.html');
 		/** Comente aqui */
 		filesystem.readFile(file, (err, data) => {
 

@@ -6,19 +6,22 @@
 	/** Commente aqui !  */
 	const path = require('path');
 
-	/** Commente aqui !  */
+	/** EJS será a Engine usada para o HTML   */
 	const ejs = require('ejs');
 
-	/** Commente aqui !  */
+	/* 
+		Cookie Parse e o Cookie Session ficam responsáveis
+		pelo controle de cookie e sessão da aplicação
+	*/
 	const cookieParse = require('cookie-parser');
 
 	/** Commente aqui !  */
 	const cookieSession = require('cookie-session');
 
-	/** Commente aqui !  */
+	/** Modulo responsável por fazer o servidor entender submissões por POST !  */
 	const bodyParser = require('body-parser');
 
-	/** Commente aqui !  */
+	/** Para Upload !  */
 	const Middleware = require('connect-multiparty');
 
 
@@ -36,11 +39,13 @@
 			keys: ['jorge', 'hugo']
 		}));
 
-		/** Commente aqui !  */
-		app.use(bodyParser.urlencoded({ extended: true }));
 
-		/** Commente aqui !  */
+		/** Faz com que o servidor entenda submissões por POST
+		 alem de os Verbos do HTTP (rest full)
+		 e JSON   */
+		app.use(bodyParser.urlencoded({ extended: true }));
 		app.use(bodyParser.json());
+
 
 		/** Commente aqui !  */
 		app.engine('html', ejs.renderFile);

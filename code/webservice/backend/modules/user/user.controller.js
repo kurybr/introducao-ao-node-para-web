@@ -95,10 +95,11 @@
 
 		}
 
+
 		/** Commente aqui !  */
 		model.VerifyEmail(data.email).then((exist) => {
 
-
+			console.log(exist);
 			/** Commente aqui !  */
 			if (exist) {
 				return callback({

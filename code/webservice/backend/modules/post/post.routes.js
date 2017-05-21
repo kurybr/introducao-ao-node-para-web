@@ -10,7 +10,7 @@
 
 
 	/** Commente aqui !  */
-	const onCreate = (request, response) => {
+	const onPublish = (request, response) => {
 
 		/** Commente aqui !  */
 		const token = request.headers['token-user'];
@@ -117,10 +117,41 @@
 
 	}
 
+
+	const onEdit = (request, response) => {
+
+		const data = request.body;
+		const token = request.headers['token-user'];
+		const post_code = request.params.code;
+
+		controller.Edit(token, post_code, data, (err, result) => {
+
+			if (err) {
+				response.status = err.status;
+				return response.json({
+					error: true,
+					msg: err.msg,
+					data: err.data
+				})
+			}
+
+			return response.json({
+				error: false,
+				msg: result.msg,
+				data: result.data
+			})
+
+
+		})
+
+
+	}
+
 	/** Commente aqui !  */
-	routes.post('/publish', onCreate);
+	routes.post('/publish', onPublish);
 	routes.get(['/', '/:code'], onList) /// Duas rotas para a mesma função.
 	routes.delete('/:code', onRemove)
+	routes.put('/:code/edit', onEdit)
 
 	/** Commente aqui !  */
 	module.exports = routes;

@@ -23,6 +23,7 @@
 			db.query(sql, query, (err, result) => {
 
 				if (err) {
+					console.log(err);
 					return reject(err)
 				}
 
@@ -44,10 +45,11 @@
 
 	/** Commente aqui !  */
 	const onRegister = (data, callback) => {
-
+		//  name, email, createdAt, password, token_recovery.
 		let sql = 'insert into user set ?'
 		let query = data;
 
+		console.log(data);
 		/** Commente aqui !  */
 		db.query(sql, query, (err, result) => {
 
